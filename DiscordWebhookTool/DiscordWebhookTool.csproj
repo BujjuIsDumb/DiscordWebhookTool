@@ -12,4 +12,8 @@
     <Content Include="icon.ico" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Include="WhitneyLight.otf" />
+  </ItemGroup>
+
 </Project>

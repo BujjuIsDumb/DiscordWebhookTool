@@ -1,4 +1,5 @@
-﻿<Window x:Class="DiscordWebhookTool.MainWindow"
+﻿<Window Style="{DynamicResource DiscordWindowTheme}"
+        x:Class="DiscordWebhookTool.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -7,11 +8,10 @@
         mc:Ignorable="d"
         Title="Discord Webhook Tool" Height="450" Width="800">
     <Grid>
-        <TextBox x:Name="contentTextBox" Margin="10,31,10,79" TextWrapping="Wrap"/>
         <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Enter Message Content" VerticalAlignment="Top"/>
-        <Button x:Name="sendButton" Content="Send" Margin="10,0,10,10" Click="sendButton_Click" Height="20" VerticalAlignment="Bottom"/>
-        <TextBox x:Name="webhookTextBox" Margin="10,0,10,35" TextWrapping="Wrap" Height="18" VerticalAlignment="Bottom"/>
-        <TextBlock HorizontalAlignment="Left" Margin="10,0,0,58" TextWrapping="Wrap" Text="Enter Webhook URL" Height="16" VerticalAlignment="Bottom"/>
-
+        <TextBox Style="{DynamicResource DiscordTextBoxTheme}" x:Name="contentTextBox" Margin="10,31,10,102" TextWrapping="Wrap"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,0,0,81" TextWrapping="Wrap" Text="Enter Webhook URL" Height="16" VerticalAlignment="Bottom"/>
+        <TextBox Style="{DynamicResource DiscordTextBoxTheme}" x:Name="webhookTextBox" Margin="10,0,10,44" TextWrapping="Wrap" Height="29" VerticalAlignment="Bottom"/>
+        <Button Style="{DynamicResource DiscordButtonTheme}" x:Name="sendButton" Content="Send" Margin="10,0,10,10" Click="sendButton_Click" Height="29" VerticalAlignment="Bottom"/>
     </Grid>
 </Window>
