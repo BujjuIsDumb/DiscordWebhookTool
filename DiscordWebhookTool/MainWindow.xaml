@@ -11,7 +11,7 @@
         <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Enter Message Content" VerticalAlignment="Top"/>
         <TextBox Style="{DynamicResource DiscordTextBoxTheme}" x:Name="contentTextBox" Margin="10,31,10,102" TextWrapping="Wrap"/>
         <TextBlock HorizontalAlignment="Left" Margin="10,0,0,81" TextWrapping="Wrap" Text="Enter Webhook URL" Height="16" VerticalAlignment="Bottom"/>
-        <TextBox Style="{DynamicResource DiscordTextBoxTheme}" x:Name="webhookTextBox" Margin="10,0,10,44" TextWrapping="Wrap" Height="29" VerticalAlignment="Bottom"/>
+        <TextBox Style="{DynamicResource DiscordTextBoxTheme}" x:Name="webhookTextBox" Margin="10,0,10,44" Height="29" VerticalAlignment="Bottom"/>
         <Button Style="{DynamicResource DiscordButtonTheme}" x:Name="sendButton" Content="Send" Margin="10,0,10,10" Click="sendButton_Click" Height="29" VerticalAlignment="Bottom"/>
     </Grid>
 </Window>
