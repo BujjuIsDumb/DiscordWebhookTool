@@ -1,0 +1,45 @@
+name: "Bug report"
+description: "Report a bug or typo"
+labels: "Bug"
+body:
+- type: dropdown
+  attributes:
+    label: "Report type"
+    description: "What type of report is this?"
+    options:
+      - Bug report
+      - Typo report
+    multiple: false
+  validations:
+    required: true
+- type: textarea
+  attributes:
+    label: "Describe this bug"
+    description: "Give a clear and concise description of what is wrong."
+  validations:
+    required: true
+- type: textarea
+  attributes:
+    label: "Steps to reproduce"
+    description: "Give the steps to make this bug happen."
+  validations:
+    required: true
+- type: textarea
+  attributes:
+    label: "Expected behavior"
+    description: "Give a clear and concise explanation of what do you expected to happen"
+  validations:
+    required: true
+- type: textarea
+  attributes:
+    label: "Actual Behavior"
+    description: "Give a clear and concise explanation of what actually happens."
+  validations:
+    required: true
+- type: input
+  attributes:
+    label: "Version"
+    description: "What version of Discord Webhook Tool are you using?"
+    placeholder: "v0.0.0"
+  validations:
+    required: true
