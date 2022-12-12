@@ -6,7 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DiscordWebhookTool"
         mc:Ignorable="d"
-        Title="Discord Webhook Tool" Height="450" Width="800">
+        Title="Discord Webhook Tool" Height="450" Width="800" MinWidth="445" MinHeight="295">
     <Grid>
         <!--Message Content-->
         <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="ENTER MESSAGE CONTENT" VerticalAlignment="Top" FontSize="12" FontWeight="Bold" Foreground="#FFB9BBBE"/>
