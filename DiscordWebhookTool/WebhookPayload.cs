@@ -24,8 +24,14 @@ using System.Text.Json.Serialization;
 
 namespace DiscordWebhookTool
 {
+    /// <summary>
+    /// A simplified payload for the <see href="https://discord.com/developers/docs/resources/webhook#execute-webhook">Execute Webhook</see> endpoint in the Discord API.
+    /// </summary>
     public class WebhookPayload
     {
+        /// <summary>
+        /// Gets or sets the message content.
+        /// </summary>
         [JsonPropertyName("content")]
         public string Content { get; set; }
     }

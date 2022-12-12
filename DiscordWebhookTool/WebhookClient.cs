@@ -28,22 +28,40 @@ using System.Threading.Tasks;
 
 namespace DiscordWebhookTool
 {
+    /// <summary>
+    /// A client for executing Discord webhooks.
+    /// </summary>
     public class WebhookClient : IDisposable
     {
+        /// <summary>
+        /// The client used to send REST requests.
+        /// </summary>
         private HttpClient _client;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="WebhookClient"/> class.
+        /// </summary>
+        /// <param name="webhookUrl">The webhook URL.</param>
         public WebhookClient(string webhookUrl)
         {
             _client = new HttpClient();
             WebhookUrl = webhookUrl;
         }
 
+        /// <summary>
+        /// Gets or sets the webhook URL.
+        /// </summary>
         public string WebhookUrl
         {
             get => _client.BaseAddress.ToString();
             set => _client.BaseAddress = new Uri(value);
         }
 
+        /// <summary>
+        /// Executes the webhook.
+        /// </summary>
+        /// <param name="payload">The payload to use.</param>
+        /// <returns>The response returned by the REST request.</returns>
         public async Task<HttpResponseMessage> ExecuteAsync(WebhookPayload payload)
         {
             var request = new HttpRequestMessage()
@@ -54,6 +72,9 @@ namespace DiscordWebhookTool
             return await _client.SendAsync(request);
         }
 
+        /// <summary>
+        /// Disposes of this <see cref="WebhookClient"/>.
+        /// </summary>
         public void Dispose()
         {
             _client.Dispose();
