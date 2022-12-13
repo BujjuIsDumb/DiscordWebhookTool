@@ -20,8 +20,13 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows;
+using System.Windows.Controls;
+using DiscordWebhookTool.Entities;
 
 namespace DiscordWebhookTool
 {
@@ -30,16 +35,162 @@ namespace DiscordWebhookTool
     /// </summary>
     public partial class MainWindow : Window
     {
-        private WebhookPayload _payload;
+        private string _content;
+
+        private List<Embed> _embeds;
+
+        private int _selected;
 
         public MainWindow()
         {
             InitializeComponent();
-            _payload = new WebhookPayload();
+            _embeds = new List<Embed>();
         }
 
-        private void contentTextBox_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
-            => _payload.Content = contentTextBox.Text;
+        #region Embed Designer
+        private void contentTextBox_TextChanged(object sender, TextChangedEventArgs e)
+            => _content = contentTextBox.Text;
+
+        private void authorTextBox_TextChanged(object sender, TextChangedEventArgs e)
+            => _embeds[_selected].Author = new EmbedAuthor() { Name = authorTextBox.Text };
+
+        private void titleTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            embedListBox.Items[_selected] = string.IsNullOrWhiteSpace(_embeds[_selected].Title) ? "New Embed" : titleTextBox.Text;
+            _embeds[_selected].Title = titleTextBox.Text;
+        }
+
+        private void descriptionTextBox_TextChanged(object sender, TextChangedEventArgs e)
+            => _embeds[_selected].Description = descriptionTextBox.Text;
+
+        private void footerTextBox_TextChanged(object sender, TextChangedEventArgs e)
+            => _embeds[_selected].Footer = new EmbedFooter() { Text = footerTextBox.Text };
+
+        private void colorTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (Regex.IsMatch(colorTextBox.Text, "#(?:[0-9a-fA-F]{3}){1,2}$"))
+                _embeds[_selected].Color = Convert.ToInt32(colorTextBox.Text.Replace("#", null), 16);
+        }
+
+        private void deleteEmbedButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Remove the embed.
+            if (embedListBox.SelectedIndex != -1)
+            {
+                _embeds.RemoveAt(_selected);
+                _selected -= 1;
+                embedListBox.Items.RemoveAt(_selected + 1);
+            }
+
+            // Hide the embed designer if there are no longer any embeds.
+            if (_embeds.Count == 0)
+            {
+                authorTextBlock.Visibility = Visibility.Hidden;
+                authorTextBox.Visibility = Visibility.Hidden;
+                titleTextBlock.Visibility = Visibility.Hidden;
+                titleTextBox.Visibility = Visibility.Hidden;
+                descriptionTextBlock.Visibility = Visibility.Hidden;
+                descriptionTextBox.Visibility = Visibility.Hidden;
+                footerTextBlock.Visibility = Visibility.Hidden;
+                footerTextBox.Visibility = Visibility.Hidden;
+                colorTextBlock.Visibility = Visibility.Hidden;
+                colorTextBox.Visibility = Visibility.Hidden;
+            }
+        }
+
+        private void addEmbedButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Show the embed designer.
+            authorTextBlock.Visibility = Visibility.Visible;
+            authorTextBox.Visibility = Visibility.Visible;
+            titleTextBlock.Visibility = Visibility.Visible;
+            titleTextBox.Visibility = Visibility.Visible;
+            descriptionTextBlock.Visibility = Visibility.Visible;
+            descriptionTextBox.Visibility = Visibility.Visible;
+            footerTextBlock.Visibility = Visibility.Visible;
+            footerTextBox.Visibility = Visibility.Visible;
+            colorTextBlock.Visibility = Visibility.Visible;
+            colorTextBox.Visibility = Visibility.Visible;
+
+            // Hide embed data from previous embed.
+            authorTextBox.Text = string.Empty;
+            titleTextBox.Text = string.Empty;
+            descriptionTextBox.Text = string.Empty;
+            footerTextBox.Text = string.Empty;
+            colorTextBox.Text = string.Empty;
+
+            // Create embed.
+            _selected = embedListBox.Items.Add("New Embed");
+            embedListBox.SelectedIndex = _selected;
+            _embeds.Add(new Embed());
+        }
+
+        private void editEmbeds_Click(object sender, RoutedEventArgs e)
+        {
+            // Show embed management buttons.
+            deleteEmbedButton.Visibility = Visibility.Visible;
+            addEmbedButton.Visibility = Visibility.Visible;
+
+            // Show embed designer if there are embeds.
+            if (_embeds.Count > 0)
+            {
+                authorTextBlock.Visibility = Visibility.Visible;
+                authorTextBox.Visibility = Visibility.Visible;
+                titleTextBlock.Visibility = Visibility.Visible;
+                titleTextBox.Visibility = Visibility.Visible;
+                descriptionTextBlock.Visibility = Visibility.Visible;
+                descriptionTextBox.Visibility = Visibility.Visible;
+                footerTextBlock.Visibility = Visibility.Visible;
+                footerTextBox.Visibility = Visibility.Visible;
+                colorTextBlock.Visibility = Visibility.Visible;
+                colorTextBox.Visibility = Visibility.Visible;
+            }
+
+            // Hide the message content designer.
+            contentTextBlock.Visibility = Visibility.Hidden;
+            contentRequiredTextBlock.Visibility = Visibility.Hidden;
+            contentTextBox.Visibility = Visibility.Hidden;
+        }
+
+        private void editMessageButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Hide embed management buttons.
+            deleteEmbedButton.Visibility = Visibility.Hidden;
+            addEmbedButton.Visibility = Visibility.Hidden;
+
+            // Hide the embed designer.
+            authorTextBlock.Visibility = Visibility.Hidden;
+            authorTextBox.Visibility = Visibility.Hidden;
+            titleTextBlock.Visibility = Visibility.Hidden;
+            titleTextBox.Visibility = Visibility.Hidden;
+            descriptionTextBlock.Visibility = Visibility.Hidden;
+            descriptionTextBox.Visibility = Visibility.Hidden;
+            footerTextBlock.Visibility = Visibility.Hidden;
+            footerTextBox.Visibility = Visibility.Hidden;
+            colorTextBlock.Visibility = Visibility.Hidden;
+            colorTextBox.Visibility = Visibility.Hidden;
+
+            // Show the message content designer.
+            contentTextBlock.Visibility = Visibility.Visible;
+            contentRequiredTextBlock.Visibility = Visibility.Visible;
+            contentTextBox.Visibility = Visibility.Visible;
+        }
+
+        private void embedListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            // Set the embed data in the embed desinger if this isn't being run through embed management buttons.
+            if (embedListBox.SelectedIndex != -1 && _selected != embedListBox.SelectedIndex)
+            {
+                _selected = embedListBox.SelectedIndex;
+
+                authorTextBox.Text = _embeds[_selected].Author?.Name;
+                titleTextBox.Text = _embeds[_selected].Title;
+                descriptionTextBox.Text = _embeds[_selected].Description;
+                footerTextBox.Text = _embeds[_selected].Footer?.Text;
+                colorTextBox.Text = _embeds[_selected].Color?.ToString("X");
+            }
+        }
+        #endregion
 
         private async void sendButton_Click(object sender, RoutedEventArgs e)
         {
@@ -49,7 +200,7 @@ namespace DiscordWebhookTool
                 return;
             }
 
-            if (string.IsNullOrEmpty(_payload.Content))
+            if (string.IsNullOrEmpty(_content) && _embeds.Count <= 0)
             {
                 MessageBox.Show("The specified message content was empty. Please input a value.", "Empty Message Content", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
@@ -57,7 +208,11 @@ namespace DiscordWebhookTool
 
             using (var client = new WebhookClient(webhookTextBox.Text))
             {
-                var response = await client.ExecuteAsync(_payload);
+                var response = await client.ExecuteAsync(new WebhookPayload()
+                {
+                    Content = _content,
+                    Embeds = _embeds
+                });
 
                 if (!response.IsSuccessStatusCode)
                     MessageBox.Show($"An error has occurred:\n\n{await response.Content.ReadAsStringAsync()}", "Webhook Execution Failed", MessageBoxButton.OK, MessageBoxImage.Error);

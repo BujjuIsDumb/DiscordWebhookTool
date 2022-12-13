@@ -9,6 +9,9 @@
         <SolidColorBrush x:Key="Button.Static.Background" Color="#5865f2"/>
         <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#4752c4"/>
         <SolidColorBrush x:Key="Button.Pressed.Background" Color="#3c45a5"/>
+        <SolidColorBrush x:Key="Button.Static.Background.Secondary" Color="#FF4C545C"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Background.Secondary" Color="#686d73"/>
+        <SolidColorBrush x:Key="Button.Pressed.Background.Secondary" Color="#72767d"/>
         <SolidColorBrush x:Key="TextBox.Background" Color="#202225"/>
         <!--#endregion-->
        
@@ -40,6 +43,31 @@
                             </Trigger>
                             <Trigger Property="IsPressed" Value="true">
                                 <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Pressed.Background}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="DiscordButtonThemeSecondary" TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background.Secondary}"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" Background="{TemplateBinding Background}" CornerRadius="5" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.MouseOver.Background.Secondary}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Pressed.Background.Secondary}"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
