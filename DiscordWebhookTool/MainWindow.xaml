@@ -11,7 +11,7 @@
         <!--Message Content-->
         <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="ENTER MESSAGE CONTENT" VerticalAlignment="Top" FontSize="12" FontWeight="Bold" Foreground="#FFB9BBBE"/>
         <TextBlock HorizontalAlignment="Left" Margin="166,7,0,0" TextWrapping="Wrap" Text="*" VerticalAlignment="Top" FontSize="12" Foreground="#FFED4245"/>
-        <TextBox Style="{DynamicResource DiscordTextBoxTheme}" x:Name="contentTextBox" Margin="10,29,10,97" TextWrapping="Wrap"/>
+        <TextBox Style="{DynamicResource DiscordTextBoxTheme}" x:Name="contentTextBox" Margin="10,29,10,97" TextWrapping="Wrap" TextChanged="contentTextBox_TextChanged"/>
 
         <!--Webhook URL-->
         <TextBlock HorizontalAlignment="Left" Margin="13,0,0,78" TextWrapping="Wrap" Text="ENTER WEBHOOK URL" FontSize="12" FontWeight="Bold" Foreground="#FFB9BBBE" Height="14" VerticalAlignment="Bottom"/>

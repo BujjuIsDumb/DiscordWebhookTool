@@ -33,10 +33,15 @@ namespace DiscordWebhookTool
     /// </summary>
     public partial class MainWindow : Window
     {
+        private WebhookPayload _payload;
+
         public MainWindow()
         {
             InitializeComponent();
         }
+
+        private void contentTextBox_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+            => _payload.Content = contentTextBox.Text;
 
         private async void sendButton_Click(object sender, RoutedEventArgs e)
         {
@@ -46,7 +51,7 @@ namespace DiscordWebhookTool
                 return;
             }
 
-            if (string.IsNullOrEmpty(contentTextBox.Text))
+            if (string.IsNullOrEmpty(_payload.Content))
             {
                 MessageBox.Show("The specified message content was empty. Please input a value.", "Empty Message Content", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
@@ -54,11 +59,7 @@ namespace DiscordWebhookTool
 
             using (var client = new WebhookClient(webhookTextBox.Text))
             {
-                var response = await client.ExecuteAsync(new WebhookPayload()
-                {
-                    Content = contentTextBox.Text,
-                    Embeds = null
-                });
+                var response = await client.ExecuteAsync(_payload);
 
                 if (!response.IsSuccessStatusCode)
                     MessageBox.Show($"An error has occurred:\n\n{await response.Content.ReadAsStringAsync()}", "Webhook Execution Failed", MessageBoxButton.OK, MessageBoxImage.Error);
