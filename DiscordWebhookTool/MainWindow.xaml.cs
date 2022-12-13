@@ -47,6 +47,7 @@ namespace DiscordWebhookTool
             _embeds = new List<Embed>();
         }
 
+        #region Embed Designer
         private void contentTextBox_TextChanged(object sender, TextChangedEventArgs e)
             => _content = contentTextBox.Text;
 
@@ -177,6 +178,7 @@ namespace DiscordWebhookTool
                 colorTextBox.Text = _embeds[_selected].Color?.ToString("X");
             }
         }
+        #endregion
 
         private async void sendButton_Click(object sender, RoutedEventArgs e)
         {
