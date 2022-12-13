@@ -44,5 +44,8 @@
         <Button x:Name="addEmbedButton" Style="{DynamicResource DiscordButtonThemeSecondary}" Content="Add Embed" Margin="10,0,10,78" Click="addEmbedButton_Click" Visibility="Hidden" Height="29" VerticalAlignment="Bottom"/>
         <Button x:Name="editEmbeds" Style="{DynamicResource DiscordButtonThemeSecondary}" Content="Edit Embeds" Margin="10,0,10,44" Click="editEmbeds_Click" Height="29" VerticalAlignment="Bottom"/>
         <Button x:Name="editMessageButton" Style="{DynamicResource DiscordButtonThemeSecondary}" Content="Edit Message" Margin="10,0,10,10" Click="editMessageButton_Click" Height="29" VerticalAlignment="Bottom"/>
+
+        <Rectangle Margin="0,10,10,0" Fill="#FF5865F2" RadiusX="10" RadiusY="10" HorizontalAlignment="Right" Width="40" Height="19" VerticalAlignment="Top"/>
+        <TextBlock Margin="0,13,15,0" TextWrapping="Wrap" Text="BETA" FontSize="12" FontWeight="Bold" Foreground="White" HorizontalAlignment="Right" Width="29" Height="11" VerticalAlignment="Top"/>
     </Grid>
 </Window>
