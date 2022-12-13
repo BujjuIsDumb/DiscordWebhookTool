@@ -37,6 +37,8 @@
         <TextBox x:Name="descriptionTextBox" Style="{DynamicResource DiscordTextBoxTheme}" Grid.Column="1" Margin="10,135,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="62" Visibility="Hidden" TextChanged="descriptionTextBox_TextChanged" />
         <TextBlock x:Name="footerTextBlock" HorizontalAlignment="Left" Margin="10,202,0,0" TextWrapping="Wrap" Text="FOOTER" VerticalAlignment="Top" FontSize="12" FontWeight="Bold" Foreground="#FFB9BBBE" Height="14" Width="78" Grid.Column="1" Visibility="Hidden" />
         <TextBox x:Name="footerTextBox" Style="{DynamicResource DiscordTextBoxTheme}" Grid.Column="1" Margin="10,221,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Visibility="Hidden" TextChanged="footerTextBox_TextChanged" />
+        <TextBlock x:Name="colorTextBlock" HorizontalAlignment="Left" Margin="10,255,0,0" TextWrapping="Wrap" Text="COLOR (HEX)" VerticalAlignment="Top" FontSize="12" FontWeight="Bold" Foreground="#FFB9BBBE" Height="14" Width="78" Grid.Column="1" Visibility="Hidden" />
+        <TextBox x:Name="colorTextBox" Style="{DynamicResource DiscordTextBoxTheme}" Grid.Column="1" Margin="10,274,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Visibility="Hidden" TextChanged="colorTextBox_TextChanged"/>
 
         <Button x:Name="deleteEmbedButton" Style="{DynamicResource DiscordButtonThemeSecondary}" Content="Delete Embed" Margin="10,0,10,112" Visibility="Hidden" Height="29" VerticalAlignment="Bottom" Click="deleteEmbedButton_Click"/>
         <Button x:Name="addEmbedButton" Style="{DynamicResource DiscordButtonThemeSecondary}" Content="Add Embed" Margin="10,0,10,78" Click="addEmbedButton_Click" Visibility="Hidden" Height="29" VerticalAlignment="Bottom"/>

@@ -20,6 +20,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -64,6 +65,12 @@ namespace DiscordWebhookTool
         private void footerTextBox_TextChanged(object sender, TextChangedEventArgs e)
             => _embeds[_selected].Footer = new EmbedFooter() { Text = footerTextBox.Text };
 
+        private void colorTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (Regex.IsMatch(colorTextBox.Text, "#(?:[0-9a-fA-F]{3}){1,2}$"))
+                _embeds[_selected].Color = Convert.ToInt32(colorTextBox.Text.Replace("#", null), 16);
+        }
+
         private void deleteEmbedButton_Click(object sender, RoutedEventArgs e)
         {
             if (embedListBox.SelectedIndex != -1)
@@ -83,6 +90,8 @@ namespace DiscordWebhookTool
                 descriptionTextBox.Visibility = Visibility.Hidden;
                 footerTextBlock.Visibility = Visibility.Hidden;
                 footerTextBox.Visibility = Visibility.Hidden;
+                colorTextBlock.Visibility = Visibility.Hidden;
+                colorTextBox.Visibility = Visibility.Hidden;
             }
         }
 
@@ -96,11 +105,14 @@ namespace DiscordWebhookTool
             descriptionTextBox.Visibility = Visibility.Visible;
             footerTextBlock.Visibility = Visibility.Visible;
             footerTextBox.Visibility = Visibility.Visible;
+            colorTextBlock.Visibility = Visibility.Visible;
+            colorTextBox.Visibility = Visibility.Visible;
 
             authorTextBox.Text = string.Empty;
             titleTextBox.Text = string.Empty;
             descriptionTextBox.Text = string.Empty;
             footerTextBox.Text = string.Empty;
+            colorTextBox.Text = string.Empty;
 
             _selected = embedListBox.Items.Add("New Embed");
             embedListBox.SelectedIndex = _selected;
@@ -122,6 +134,8 @@ namespace DiscordWebhookTool
                 descriptionTextBox.Visibility = Visibility.Visible;
                 footerTextBlock.Visibility = Visibility.Visible;
                 footerTextBox.Visibility = Visibility.Visible;
+                colorTextBlock.Visibility = Visibility.Visible;
+                colorTextBox.Visibility = Visibility.Visible;
             }
 
             contentTextBlock.Visibility = Visibility.Hidden;
@@ -142,6 +156,8 @@ namespace DiscordWebhookTool
             descriptionTextBox.Visibility = Visibility.Hidden;
             footerTextBlock.Visibility = Visibility.Hidden;
             footerTextBox.Visibility = Visibility.Hidden;
+            colorTextBlock.Visibility = Visibility.Hidden;
+            colorTextBox.Visibility = Visibility.Hidden;
 
             contentTextBlock.Visibility = Visibility.Visible;
             contentRequiredTextBlock.Visibility = Visibility.Visible;
@@ -158,6 +174,7 @@ namespace DiscordWebhookTool
                 titleTextBox.Text = _embeds[_selected].Title;
                 descriptionTextBox.Text = _embeds[_selected].Description;
                 footerTextBox.Text = _embeds[_selected].Footer?.Text;
+                colorTextBox.Text = _embeds[_selected].Color?.ToString("X");
             }
         }
 
