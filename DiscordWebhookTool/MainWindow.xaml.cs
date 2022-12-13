@@ -74,6 +74,7 @@ namespace DiscordWebhookTool
 
         private void deleteEmbedButton_Click(object sender, RoutedEventArgs e)
         {
+            // Remove the embed.
             if (embedListBox.SelectedIndex != -1)
             {
                 _embeds.RemoveAt(_selected);
@@ -81,6 +82,7 @@ namespace DiscordWebhookTool
                 embedListBox.Items.RemoveAt(_selected + 1);
             }
 
+            // Hide the embed designer if there are no longer any embeds.
             if (_embeds.Count == 0)
             {
                 authorTextBlock.Visibility = Visibility.Hidden;
@@ -98,6 +100,7 @@ namespace DiscordWebhookTool
 
         private void addEmbedButton_Click(object sender, RoutedEventArgs e)
         {
+            // Show the embed designer.
             authorTextBlock.Visibility = Visibility.Visible;
             authorTextBox.Visibility = Visibility.Visible;
             titleTextBlock.Visibility = Visibility.Visible;
@@ -109,12 +112,14 @@ namespace DiscordWebhookTool
             colorTextBlock.Visibility = Visibility.Visible;
             colorTextBox.Visibility = Visibility.Visible;
 
+            // Hide embed data from previous embed.
             authorTextBox.Text = string.Empty;
             titleTextBox.Text = string.Empty;
             descriptionTextBox.Text = string.Empty;
             footerTextBox.Text = string.Empty;
             colorTextBox.Text = string.Empty;
 
+            // Create embed.
             _selected = embedListBox.Items.Add("New Embed");
             embedListBox.SelectedIndex = _selected;
             _embeds.Add(new Embed());
@@ -122,9 +127,11 @@ namespace DiscordWebhookTool
 
         private void editEmbeds_Click(object sender, RoutedEventArgs e)
         {
+            // Show embed management buttons.
             deleteEmbedButton.Visibility = Visibility.Visible;
             addEmbedButton.Visibility = Visibility.Visible;
 
+            // Show embed designer if there are embeds.
             if (_embeds.Count > 0)
             {
                 authorTextBlock.Visibility = Visibility.Visible;
@@ -139,6 +146,7 @@ namespace DiscordWebhookTool
                 colorTextBox.Visibility = Visibility.Visible;
             }
 
+            // Hide the message content designer.
             contentTextBlock.Visibility = Visibility.Hidden;
             contentRequiredTextBlock.Visibility = Visibility.Hidden;
             contentTextBox.Visibility = Visibility.Hidden;
@@ -146,9 +154,11 @@ namespace DiscordWebhookTool
 
         private void editMessageButton_Click(object sender, RoutedEventArgs e)
         {
+            // Hide embed management buttons.
             deleteEmbedButton.Visibility = Visibility.Hidden;
             addEmbedButton.Visibility = Visibility.Hidden;
 
+            // Hide the embed designer.
             authorTextBlock.Visibility = Visibility.Hidden;
             authorTextBox.Visibility = Visibility.Hidden;
             titleTextBlock.Visibility = Visibility.Hidden;
@@ -160,6 +170,7 @@ namespace DiscordWebhookTool
             colorTextBlock.Visibility = Visibility.Hidden;
             colorTextBox.Visibility = Visibility.Hidden;
 
+            // Show the message content designer.
             contentTextBlock.Visibility = Visibility.Visible;
             contentRequiredTextBlock.Visibility = Visibility.Visible;
             contentTextBox.Visibility = Visibility.Visible;
@@ -167,6 +178,7 @@ namespace DiscordWebhookTool
 
         private void embedListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            // Set the embed data in the embed desinger if this isn't being run through embed management buttons.
             if (embedListBox.SelectedIndex != -1 && _selected != embedListBox.SelectedIndex)
             {
                 _selected = embedListBox.SelectedIndex;
