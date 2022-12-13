@@ -26,7 +26,7 @@
         <TextBox Style="{DynamicResource DiscordTextBoxTheme}" x:Name="contentTextBox" Margin="10,26,10,99" TextWrapping="Wrap" TextChanged="contentTextBox_TextChanged" Grid.Column="1" Visibility="Hidden" />
 
         <!--Embed Designer-->
-        <ListBox x:Name="embedListBox" Background="#2f3136" BorderBrush="{x:Null}" Foreground="White" SelectionChanged="embedListBox_SelectionChanged"/>
+        <ListBox Style="{DynamicResource DiscordListBoxTheme}" x:Name="embedListBox" SelectionChanged="embedListBox_SelectionChanged"/>
 
         <TextBlock x:Name="authorTextBlock" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="AUTHOR" VerticalAlignment="Top" FontSize="12" FontWeight="Bold" Foreground="#FFB9BBBE" Height="14" Width="51" Grid.Column="1" Visibility="Hidden" />
         <TextBox x:Name="authorTextBox" Style="{DynamicResource DiscordTextBoxTheme}" Grid.Column="1" Margin="10,29,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Visibility="Hidden" TextChanged="authorTextBox_TextChanged" />

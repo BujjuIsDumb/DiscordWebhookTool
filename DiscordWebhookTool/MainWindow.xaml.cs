@@ -56,7 +56,10 @@ namespace DiscordWebhookTool
 
         private void titleTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            embedListBox.Items[_selected] = string.IsNullOrWhiteSpace(_embeds[_selected].Title) ? "New Embed" : titleTextBox.Text;
+            embedListBox.Items[_selected] = string.IsNullOrWhiteSpace(_embeds[_selected].Title) ?
+                new ListBoxItem() { Content = "New Embed", Style = (Style)FindResource("DiscordListBoxItemTheme") } :
+                new ListBoxItem() { Content = titleTextBox.Text, Style = (Style)FindResource("DiscordListBoxItemTheme") };
+
             _embeds[_selected].Title = titleTextBox.Text;
         }
 
@@ -120,7 +123,12 @@ namespace DiscordWebhookTool
             colorTextBox.Text = string.Empty;
 
             // Create embed.
-            _selected = embedListBox.Items.Add("New Embed");
+            _selected = embedListBox.Items.Add(new ListBoxItem()
+            {
+                Content = "New Embed",
+                Style = (Style)FindResource("DiscordListBoxItemTheme")
+            });
+
             embedListBox.SelectedIndex = _selected;
             _embeds.Add(new Embed());
         }
