@@ -148,7 +148,6 @@ namespace DiscordWebhookTool
 
             // Hide the message content designer.
             contentTextBlock.Visibility = Visibility.Hidden;
-            contentRequiredTextBlock.Visibility = Visibility.Hidden;
             contentTextBox.Visibility = Visibility.Hidden;
         }
 
@@ -172,7 +171,6 @@ namespace DiscordWebhookTool
 
             // Show the message content designer.
             contentTextBlock.Visibility = Visibility.Visible;
-            contentRequiredTextBlock.Visibility = Visibility.Visible;
             contentTextBox.Visibility = Visibility.Visible;
         }
 
