@@ -35,6 +35,7 @@ namespace DiscordWebhookTool
         public MainWindow()
         {
             InitializeComponent();
+            _payload = new WebhookPayload();
         }
 
         private void contentTextBox_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
