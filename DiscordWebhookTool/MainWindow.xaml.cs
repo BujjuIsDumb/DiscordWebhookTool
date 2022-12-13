@@ -54,24 +54,10 @@ namespace DiscordWebhookTool
 
             using (var client = new WebhookClient(webhookTextBox.Text))
             {
-                List<Embed> embeds = null;
-                if (!string.IsNullOrEmpty(embedTextBox.Text))
-                {
-                    try
-                    {
-                        embeds = JsonSerializer.Deserialize<List<Embed>>(embedTextBox.Text);
-                    }
-                    catch (JsonException)
-                    {
-                        MessageBox.Show("The specified embed JSON was not valid. Please enter valid JSON.", "Invalid Embed JSON", MessageBoxButton.OK, MessageBoxImage.Error);
-                        return;
-                    }
-                }
-
                 var response = await client.ExecuteAsync(new WebhookPayload()
                 {
                     Content = contentTextBox.Text,
-                    Embeds = embeds
+                    Embeds = null
                 });
 
                 if (!response.IsSuccessStatusCode)
