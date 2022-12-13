@@ -59,6 +59,7 @@ namespace DiscordWebhookTool
             embedListBox.Items[_selected] = string.IsNullOrWhiteSpace(_embeds[_selected].Title) ?
                 new ListBoxItem() { Content = "New Embed", Style = (Style)FindResource("DiscordListBoxItemTheme") } :
                 new ListBoxItem() { Content = titleTextBox.Text, Style = (Style)FindResource("DiscordListBoxItemTheme") };
+            embedListBox.SelectedIndex = _selected;
 
             _embeds[_selected].Title = titleTextBox.Text;
         }
