@@ -56,7 +56,7 @@ namespace DiscordWebhookTool
 
         private void titleTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            embedListBox.Items[_selected] = titleTextBox.Text;
+            embedListBox.Items[_selected] = string.IsNullOrWhiteSpace(_embeds[_selected].Title) ? "New Embed" : titleTextBox.Text;
             _embeds[_selected].Title = titleTextBox.Text;
         }
 
