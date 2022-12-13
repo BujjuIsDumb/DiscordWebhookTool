@@ -20,27 +20,31 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-using System.Collections.Generic;
 using System.Text.Json.Serialization;
-using DiscordWebhookTool.Entities;
 
-namespace DiscordWebhookTool
+namespace DiscordWebhookTool.Entities
 {
     /// <summary>
-    /// A simplified payload for the <see href="https://discord.com/developers/docs/resources/webhook#execute-webhook">Execute Webhook</see> endpoint in the Discord API.
+    /// <see href="https://discord.com/developers/docs/resources/channel#embed-object-embed-footer-structure">See documentation</see>
     /// </summary>
-    public class WebhookPayload
+    public class EmbedFooter
     {
         /// <summary>
-        /// Gets or sets the message content.
+        /// <see href="https://discord.com/developers/docs/resources/channel#embed-object-embed-footer-structure">See documentation</see>
         /// </summary>
-        [JsonPropertyName("content")]
-        public string Content { get; set; }
+        [JsonPropertyName("text")]
+        public string Text { get; set; }
 
         /// <summary>
-        /// Gets or sets a list with the message's embed.
+        /// <see href="https://discord.com/developers/docs/resources/channel#embed-object-embed-footer-structure">See documentation</see>
         /// </summary>
-        [JsonPropertyName("embeds")]
-        public List<Embed> Embeds { get; set; }
+        [JsonPropertyName("icon_url")]
+        public string? IconUrl { get; set; }
+
+        /// <summary>
+        /// <see href="https://discord.com/developers/docs/resources/channel#embed-object-embed-footer-structure">See documentation</see>
+        /// </summary>
+        [JsonPropertyName("proxy_icon_url")]
+        public string? ProxyIconUrl { get; set; }
     }
 }

@@ -20,27 +20,31 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-using System.Collections.Generic;
 using System.Text.Json.Serialization;
-using DiscordWebhookTool.Entities;
 
-namespace DiscordWebhookTool
+namespace DiscordWebhookTool.Entities
 {
     /// <summary>
-    /// A simplified payload for the <see href="https://discord.com/developers/docs/resources/webhook#execute-webhook">Execute Webhook</see> endpoint in the Discord API.
+    /// <see href="https://discord.com/developers/docs/resources/channel#embed-object-embed-field-structure">See documentation</see>
     /// </summary>
-    public class WebhookPayload
+    public class EmbedField
     {
         /// <summary>
-        /// Gets or sets the message content.
+        /// <see href="https://discord.com/developers/docs/resources/channel#embed-object-embed-field-structure">See documentation</see>
         /// </summary>
-        [JsonPropertyName("content")]
-        public string Content { get; set; }
+        [JsonPropertyName("name")]
+        public string Name { get; set; }
 
         /// <summary>
-        /// Gets or sets a list with the message's embed.
+        /// <see href="https://discord.com/developers/docs/resources/channel#embed-object-embed-field-structure">See documentation</see>
         /// </summary>
-        [JsonPropertyName("embeds")]
-        public List<Embed> Embeds { get; set; }
+        [JsonPropertyName("value")]
+        public string Value { get; set; }
+
+        /// <summary>
+        /// <see href="https://discord.com/developers/docs/resources/channel#embed-object-embed-field-structure">See documentation</see>
+        /// </summary>
+        [JsonPropertyName("inline")]
+        public bool? Inline { get; set; }
     }
 }

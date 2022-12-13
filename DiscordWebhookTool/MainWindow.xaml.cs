@@ -20,8 +20,11 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+using System.Collections.Generic;
+using System.Text.Json;
 using System.Text.RegularExpressions;
 using System.Windows;
+using DiscordWebhookTool.Entities;
 
 namespace DiscordWebhookTool
 {
@@ -51,9 +54,24 @@ namespace DiscordWebhookTool
 
             using (var client = new WebhookClient(webhookTextBox.Text))
             {
+                List<Embed> embeds = null;
+                if (!string.IsNullOrEmpty(embedTextBox.Text))
+                {
+                    try
+                    {
+                        embeds = JsonSerializer.Deserialize<List<Embed>>(embedTextBox.Text);
+                    }
+                    catch (JsonException)
+                    {
+                        MessageBox.Show("The specified embed JSON was not valid. Please enter valid JSON.", "Invalid Embed JSON", MessageBoxButton.OK, MessageBoxImage.Error);
+                        return;
+                    }
+                }
+
                 var response = await client.ExecuteAsync(new WebhookPayload()
                 {
-                    Content = contentTextBox.Text
+                    Content = contentTextBox.Text,
+                    Embeds = embeds
                 });
 
                 if (!response.IsSuccessStatusCode)
