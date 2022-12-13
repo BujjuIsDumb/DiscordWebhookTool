@@ -20,8 +20,11 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+using System.Collections.Generic;
+using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows;
+using DiscordWebhookTool.Entities;
 
 namespace DiscordWebhookTool
 {
@@ -35,11 +38,56 @@ namespace DiscordWebhookTool
         public MainWindow()
         {
             InitializeComponent();
-            _payload = new WebhookPayload();
+            _payload = new WebhookPayload() { Embeds = new List<Embed>() };
         }
 
         private void contentTextBox_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
             => _payload.Content = contentTextBox.Text;
+
+        private void authorTextBox_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+            => _payload.Embeds.First().Author = new EmbedAuthor() { Name = authorTextBox.Text };
+
+        private void titleTextBox_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+            => _payload.Embeds.First().Title = titleTextBox.Text;
+
+        private void descriptionTextBox_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+            => _payload.Embeds.First().Description = descriptionTextBox.Text;
+
+        private void footerTextBox_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+            => _payload.Embeds.First().Footer = new EmbedFooter() { Text = footerTextBox.Text };
+
+        private void editMessageButton_Click(object sender, RoutedEventArgs e)
+        {
+            authorTextBlock.Visibility = Visibility.Hidden;
+            authorTextBox.Visibility = Visibility.Hidden;
+            titleTextBlock.Visibility = Visibility.Hidden;
+            titleTextBox.Visibility = Visibility.Hidden;
+            descriptionTextBlock.Visibility = Visibility.Hidden;
+            descriptionTextBox.Visibility = Visibility.Hidden;
+            footerTextBlock.Visibility = Visibility.Hidden;
+            footerTextBox.Visibility = Visibility.Hidden;
+
+            contentTextBlock.Visibility = Visibility.Visible;
+            contentRequiredTextBlock.Visibility = Visibility.Visible;
+            contentTextBox.Visibility = Visibility.Visible;
+        }
+
+        private void addEmbedButton_Click(object sender, RoutedEventArgs e)
+        {
+            _payload.Embeds.Add(new Embed());
+            authorTextBlock.Visibility = Visibility.Visible;
+            authorTextBox.Visibility = Visibility.Visible;
+            titleTextBlock.Visibility = Visibility.Visible;
+            titleTextBox.Visibility = Visibility.Visible;
+            descriptionTextBlock.Visibility = Visibility.Visible;
+            descriptionTextBox.Visibility = Visibility.Visible;
+            footerTextBlock.Visibility = Visibility.Visible;
+            footerTextBox.Visibility = Visibility.Visible;
+
+            contentTextBlock.Visibility = Visibility.Hidden;
+            contentRequiredTextBlock.Visibility = Visibility.Hidden;
+            contentTextBox.Visibility = Visibility.Hidden;
+        }
 
         private async void sendButton_Click(object sender, RoutedEventArgs e)
         {
@@ -49,7 +97,7 @@ namespace DiscordWebhookTool
                 return;
             }
 
-            if (string.IsNullOrEmpty(_payload.Content))
+            if (string.IsNullOrEmpty(_payload.Content) && _payload.Embeds.Count <= 0)
             {
                 MessageBox.Show("The specified message content was empty. Please input a value.", "Empty Message Content", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;

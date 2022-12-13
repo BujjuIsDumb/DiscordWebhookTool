@@ -46,7 +46,7 @@
                 </Setter.Value>
             </Setter>
         </Style>
-
+        
         <!--TextBox-->
         <Style x:Key="DiscordTextBoxTheme" TargetType="{x:Type TextBox}">
             <Setter Property="Background" Value="{DynamicResource TextBox.Background}"/>
