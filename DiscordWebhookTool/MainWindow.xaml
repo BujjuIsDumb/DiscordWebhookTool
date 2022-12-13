@@ -39,8 +39,8 @@
         <TextBlock x:Name="colorTextBlock" HorizontalAlignment="Left" Margin="10,255,0,0" TextWrapping="Wrap" Text="COLOR (HEX)" VerticalAlignment="Top" FontSize="12" FontWeight="Bold" Foreground="#FFB9BBBE" Height="14" Width="78" Grid.Column="1" Visibility="Hidden" />
         <TextBox x:Name="colorTextBox" Style="{DynamicResource DiscordTextBoxTheme}" Grid.Column="1" Margin="10,274,10,0" VerticalAlignment="Top" Visibility="Hidden" TextChanged="colorTextBox_TextChanged"/>
 
-        <Button x:Name="deleteEmbedButton" Style="{DynamicResource DiscordButtonThemeSecondary}" Content="Delete Embed" Margin="10,0,10,112" Visibility="Hidden" Height="29" VerticalAlignment="Bottom" Click="deleteEmbedButton_Click"/>
-        <Button x:Name="addEmbedButton" Style="{DynamicResource DiscordButtonThemeSecondary}" Content="Add Embed" Margin="10,0,10,78" Click="addEmbedButton_Click" Visibility="Hidden" Height="29" VerticalAlignment="Bottom"/>
+        <Button x:Name="deleteEmbedButton" Style="{DynamicResource SymbolButtonStyle}" Content="-" Margin="28,0,0,78" Visibility="Visible" Height="29" VerticalAlignment="Bottom" Click="deleteEmbedButton_Click" Foreground="White" BorderBrush="{x:Null}" HorizontalContentAlignment="Left" FontFamily="Segoe UI Semibold" FontSize="20" HorizontalAlignment="Left" Width="12" Background="{x:Null}" ToolTip="Remove Embed"/>
+        <Button x:Name="addEmbedButton" Style="{DynamicResource SymbolButtonStyle}" Content="+" Margin="10,0,0,78" Click="addEmbedButton_Click" Visibility="Visible" Height="29" VerticalAlignment="Bottom" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" HorizontalContentAlignment="Left" FontFamily="Segoe UI Semibold" FontSize="20" HorizontalAlignment="Left" Width="18" ToolTip="Add Embed"/>
         <Button x:Name="editEmbeds" Style="{DynamicResource DiscordButtonThemeSecondary}" Content="Edit Embeds" Margin="10,0,10,44" Click="editEmbeds_Click" Height="29" VerticalAlignment="Bottom"/>
         <Button x:Name="editMessageButton" Style="{DynamicResource DiscordButtonThemeSecondary}" Content="Edit Message" Margin="10,0,10,10" Click="editMessageButton_Click" Height="29" VerticalAlignment="Bottom"/>
 
