@@ -23,7 +23,6 @@
 
         <!--Content Designer-->
         <TextBlock x:Name="contentTextBlock" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="ENTER MESSAGE CONTENT" VerticalAlignment="Top" FontSize="12" FontWeight="Bold" Foreground="#FFB9BBBE" Height="14" Width="156" Grid.Column="1" Visibility="Hidden" />
-        <TextBlock x:Name="contentRequiredTextBlock" HorizontalAlignment="Left" Margin="164,7,0,0" TextWrapping="Wrap" Text="*" VerticalAlignment="Top" FontSize="12" Foreground="#FFED4245" Height="14" Width="5" Grid.Column="1" Visibility="Hidden" />
         <TextBox Style="{DynamicResource DiscordTextBoxTheme}" x:Name="contentTextBox" Margin="10,26,10,99" TextWrapping="Wrap" TextChanged="contentTextBox_TextChanged" Grid.Column="1" Visibility="Hidden" />
 
         <!--Embed Designer-->
