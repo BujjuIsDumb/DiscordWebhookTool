@@ -34,31 +34,31 @@ namespace DiscordWebhookTool.Entities
         /// <see href="https://discord.com/developers/docs/resources/channel#embed-object-embed-structure">See documentation</see>
         /// </summary>
         [JsonPropertyName("title")]
-        public string? Title { get; set; }
+        public string Title { get; set; }
 
         /// <summary>
         /// <see href="https://discord.com/developers/docs/resources/channel#embed-object-embed-structure">See documentation</see>
         /// </summary>
         [JsonPropertyName("type")]
-        public string? Type { get; set; }
+        public string Type { get; set; }
 
         /// <summary>
         /// <see href="https://discord.com/developers/docs/resources/channel#embed-object-embed-structure">See documentation</see>
         /// </summary>
         [JsonPropertyName("description")]
-        public string? Description { get; set; }
+        public string Description { get; set; }
 
         /// <summary>
         /// <see href="https://discord.com/developers/docs/resources/channel#embed-object-embed-structure">See documentation</see>
         /// </summary>
         [JsonPropertyName("url")]
-        public string? Url { get; set; }
+        public string Url { get; set; }
 
         /// <summary>
         /// <see href="https://discord.com/developers/docs/resources/channel#embed-object-embed-structure">See documentation</see>
         /// </summary>
         [JsonPropertyName("timestamp")]
-        public string? Timestamp { get; set; }
+        public string Timestamp { get; set; }
 
         /// <summary>
         /// <see href="https://discord.com/developers/docs/resources/channel#embed-object-embed-structure">See documentation</see>
@@ -70,42 +70,42 @@ namespace DiscordWebhookTool.Entities
         /// <see href="https://discord.com/developers/docs/resources/channel#embed-object-embed-structure">See documentation</see>
         /// </summary>
         [JsonPropertyName("footer")]
-        public EmbedFooter? Footer { get; set; }
+        public EmbedFooter Footer { get; set; }
 
         /// <summary>
         /// <see href="https://discord.com/developers/docs/resources/channel#embed-object-embed-structure">See documentation</see>
         /// </summary>
         [JsonPropertyName("image")]
-        public EmbedImage? Image { get; set; }
+        public EmbedImage Image { get; set; }
 
         /// <summary>
         /// <see href="https://discord.com/developers/docs/resources/channel#embed-object-embed-structure">See documentation</see>
         /// </summary>
         [JsonPropertyName("thumbnail")]
-        public EmbedThumbnail? Thumbnail { get; set; }
+        public EmbedThumbnail Thumbnail { get; set; }
 
         /// <summary>
         /// <see href="https://discord.com/developers/docs/resources/channel#embed-object-embed-structure">See documentation</see>
         /// </summary>
         [JsonPropertyName("video")]
-        public EmbedVideo? Video { get; set; }
+        public EmbedVideo Video { get; set; }
 
         /// <summary>
         /// <see href="https://discord.com/developers/docs/resources/channel#embed-object-embed-structure">See documentation</see>
         /// </summary>
         [JsonPropertyName("provider")]
-        public EmbedProvider? Provider { get; set; }
+        public EmbedProvider Provider { get; set; }
 
         /// <summary>
         /// <see href="https://discord.com/developers/docs/resources/channel#embed-object-embed-structure">See documentation</see>
         /// </summary>
         [JsonPropertyName("author")]
-        public EmbedAuthor? Author { get; set; }
+        public EmbedAuthor Author { get; set; }
 
         /// <summary>
         /// <see href="https://discord.com/developers/docs/resources/channel#embed-object-embed-structure">See documentation</see>
         /// </summary>
         [JsonPropertyName("fields")]
-        public List<EmbedField>? Fields { get; set; }
+        public List<EmbedField> Fields { get; set; }
     }
 }

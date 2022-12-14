@@ -39,18 +39,18 @@ namespace DiscordWebhookTool.Entities
         /// <see href="https://discord.com/developers/docs/resources/channel#embed-object-embed-image-structure">See documentation</see>
         /// </summary>
         [JsonPropertyName("proxy_url")]
-        public string? ProxyUrl { get; set; }
+        public string ProxyUrl { get; set; }
 
         /// <summary>
         /// <see href="https://discord.com/developers/docs/resources/channel#embed-object-embed-image-structure">See documentation</see>
         /// </summary>
         [JsonPropertyName("height")]
-        public int? Height { get; set; }
+        public int Height { get; set; }
 
         /// <summary>
         /// <see href="https://discord.com/developers/docs/resources/channel#embed-object-embed-image-structure">See documentation</see>
         /// </summary>
         [JsonPropertyName("width")]
-        public int? Width { get; set; }
+        public int Width { get; set; }
     }
 }

@@ -33,12 +33,12 @@ namespace DiscordWebhookTool.Entities
         /// <see href="https://discord.com/developers/docs/resources/channel#embed-object-embed-provider-structure">See documentation</see>
         /// </summary>
         [JsonPropertyName("name")]
-        public string? Name { get; set; }
+        public string Name { get; set; }
 
         /// <summary>
         /// <see href="https://discord.com/developers/docs/resources/channel#embed-object-embed-provider-structure">See documentation</see>
         /// </summary>
         [JsonPropertyName("url")]
-        public string? Url { get; set; }
+        public string Url { get; set; }
     }
 }
