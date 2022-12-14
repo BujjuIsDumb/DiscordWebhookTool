@@ -126,7 +126,7 @@ namespace DiscordWebhookTool
 
                 // Hide embed data from previous embed.
                 authorTextBox.Text = string.Empty;
-                titleTextBox.Text = string.Empty;
+                titleTextBox.Text = "New Embed";
                 descriptionTextBox.Text = string.Empty;
                 footerTextBox.Text = string.Empty;
                 colorTextBox.Text = string.Empty;
@@ -139,7 +139,7 @@ namespace DiscordWebhookTool
                 });
 
                 embedListBox.SelectedIndex = _selected;
-                _embeds.Add(new Embed());
+                _embeds.Add(new Embed() { Title = "New Embed" });
             }
         }
 
