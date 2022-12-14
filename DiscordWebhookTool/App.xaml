@@ -222,7 +222,6 @@
                                         </GradientStopCollection>
                                     </LinearGradientBrush.GradientStops>
                                 </LinearGradientBrush>
-
                             </Border.Background>
                             <Border.BorderBrush>
                                 <SolidColorBrush Color="#18191c" />
