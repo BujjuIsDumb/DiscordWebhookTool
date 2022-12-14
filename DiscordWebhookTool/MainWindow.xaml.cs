@@ -124,13 +124,6 @@ namespace DiscordWebhookTool
                 colorTextBlock.Visibility = Visibility.Visible;
                 colorTextBox.Visibility = Visibility.Visible;
 
-                // Hide embed data from previous embed.
-                authorTextBox.Text = string.Empty;
-                titleTextBox.Text = "New Embed";
-                descriptionTextBox.Text = string.Empty;
-                footerTextBox.Text = string.Empty;
-                colorTextBox.Text = string.Empty;
-
                 // Create embed.
                 _selected = embedListBox.Items.Add(new ListBoxItem()
                 {
@@ -140,6 +133,13 @@ namespace DiscordWebhookTool
 
                 embedListBox.SelectedIndex = _selected;
                 _embeds.Add(new Embed() { Title = "New Embed" });
+
+                // Hide embed data from previous embed.
+                authorTextBox.Text = string.Empty;
+                titleTextBox.Text = "New Embed";
+                descriptionTextBox.Text = string.Empty;
+                footerTextBox.Text = string.Empty;
+                colorTextBox.Text = string.Empty;
             }
             else
             {
