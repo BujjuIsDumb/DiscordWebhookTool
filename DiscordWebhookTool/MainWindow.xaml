@@ -23,7 +23,7 @@
 
         <!--Content Designer-->
         <TextBlock x:Name="contentTextBlock" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="ENTER MESSAGE CONTENT" VerticalAlignment="Top" FontSize="12" FontWeight="Bold" Foreground="#FFB9BBBE" Height="14" Width="156" Grid.Column="1" Visibility="Hidden" />
-        <TextBox Style="{DynamicResource DiscordTextBoxTheme}" x:Name="contentTextBox" Margin="10,26,10,99" TextWrapping="Wrap" TextChanged="contentTextBox_TextChanged" Grid.Column="1" Visibility="Hidden" />
+        <TextBox Style="{DynamicResource DiscordTextBoxTheme}" x:Name="contentTextBox" Margin="10,26,10,99" TextWrapping="Wrap" TextChanged="contentTextBox_TextChanged" Grid.Column="1" Visibility="Hidden" AcceptsReturn="True"/>
 
         <!--Embed Designer-->
         <ListBox Style="{DynamicResource DiscordListBoxTheme}" x:Name="embedListBox" SelectionChanged="embedListBox_SelectionChanged" />
@@ -33,7 +33,7 @@
         <TextBlock x:Name="titleTextBlock" HorizontalAlignment="Left" Margin="10,63,0,0" TextWrapping="Wrap" Text="TITLE" VerticalAlignment="Top" FontSize="12" FontWeight="Bold" Foreground="#FFB9BBBE" Height="14" Width="31" Grid.Column="1" Visibility="Hidden" />
         <TextBox x:Name="titleTextBox" Style="{DynamicResource DiscordTextBoxTheme}" Grid.Column="1" Margin="10,82,10,0" VerticalAlignment="Top" Visibility="Hidden" TextChanged="titleTextBox_TextChanged" />
         <TextBlock x:Name="descriptionTextBlock" HorizontalAlignment="Left" Margin="10,116,0,0" TextWrapping="Wrap" Text="DESCRIPTION" VerticalAlignment="Top" FontSize="12" FontWeight="Bold" Foreground="#FFB9BBBE" Height="14" Width="78" Grid.Column="1" Visibility="Hidden" />
-        <TextBox x:Name="descriptionTextBox" Style="{DynamicResource DiscordTextBoxTheme}" Grid.Column="1" Margin="10,135,10,0" VerticalAlignment="Top" Height="62" Visibility="Hidden" TextChanged="descriptionTextBox_TextChanged" />
+        <TextBox x:Name="descriptionTextBox" Style="{DynamicResource DiscordTextBoxTheme}" Grid.Column="1" Margin="10,135,10,0" VerticalAlignment="Top" Height="62" Visibility="Hidden" TextChanged="descriptionTextBox_TextChanged" AcceptsReturn="True"/>
         <TextBlock x:Name="footerTextBlock" HorizontalAlignment="Left" Margin="10,202,0,0" TextWrapping="Wrap" Text="FOOTER" VerticalAlignment="Top" FontSize="12" FontWeight="Bold" Foreground="#FFB9BBBE" Height="14" Width="78" Grid.Column="1" Visibility="Hidden" />
         <TextBox x:Name="footerTextBox" Style="{DynamicResource DiscordTextBoxTheme}" Grid.Column="1" Margin="10,221,10,0" VerticalAlignment="Top" Visibility="Hidden" TextChanged="footerTextBox_TextChanged" />
         <TextBlock x:Name="colorTextBlock" HorizontalAlignment="Left" Margin="10,255,0,0" TextWrapping="Wrap" Text="COLOR (HEX)" VerticalAlignment="Top" FontSize="12" FontWeight="Bold" Foreground="#FFB9BBBE" Height="14" Width="78" Grid.Column="1" Visibility="Hidden" />
