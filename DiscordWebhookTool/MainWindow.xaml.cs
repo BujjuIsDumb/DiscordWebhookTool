@@ -110,34 +110,37 @@ namespace DiscordWebhookTool
 
         private void addEmbedButton_Click(object sender, RoutedEventArgs e)
         {
-            // Show the embed designer.
-            authorTextBlock.Visibility = Visibility.Visible;
-            authorTextBox.Visibility = Visibility.Visible;
-            titleTextBlock.Visibility = Visibility.Visible;
-            titleTextBox.Visibility = Visibility.Visible;
-            descriptionTextBlock.Visibility = Visibility.Visible;
-            descriptionTextBox.Visibility = Visibility.Visible;
-            footerTextBlock.Visibility = Visibility.Visible;
-            footerTextBox.Visibility = Visibility.Visible;
-            colorTextBlock.Visibility = Visibility.Visible;
-            colorTextBox.Visibility = Visibility.Visible;
-
-            // Hide embed data from previous embed.
-            authorTextBox.Text = string.Empty;
-            titleTextBox.Text = string.Empty;
-            descriptionTextBox.Text = string.Empty;
-            footerTextBox.Text = string.Empty;
-            colorTextBox.Text = string.Empty;
-
-            // Create embed.
-            _selected = embedListBox.Items.Add(new ListBoxItem()
+            if (_embeds.Count <= 10)
             {
-                Content = "New Embed",
-                Style = (Style)FindResource("DiscordListBoxItemTheme")
-            });
+                // Show the embed designer.
+                authorTextBlock.Visibility = Visibility.Visible;
+                authorTextBox.Visibility = Visibility.Visible;
+                titleTextBlock.Visibility = Visibility.Visible;
+                titleTextBox.Visibility = Visibility.Visible;
+                descriptionTextBlock.Visibility = Visibility.Visible;
+                descriptionTextBox.Visibility = Visibility.Visible;
+                footerTextBlock.Visibility = Visibility.Visible;
+                footerTextBox.Visibility = Visibility.Visible;
+                colorTextBlock.Visibility = Visibility.Visible;
+                colorTextBox.Visibility = Visibility.Visible;
 
-            embedListBox.SelectedIndex = _selected;
-            _embeds.Add(new Embed());
+                // Hide embed data from previous embed.
+                authorTextBox.Text = string.Empty;
+                titleTextBox.Text = string.Empty;
+                descriptionTextBox.Text = string.Empty;
+                footerTextBox.Text = string.Empty;
+                colorTextBox.Text = string.Empty;
+
+                // Create embed.
+                _selected = embedListBox.Items.Add(new ListBoxItem()
+                {
+                    Content = "New Embed",
+                    Style = (Style)FindResource("DiscordListBoxItemTheme")
+                });
+
+                embedListBox.SelectedIndex = _selected;
+                _embeds.Add(new Embed());
+            }
         }
 
         private void editEmbeds_Click(object sender, RoutedEventArgs e)
