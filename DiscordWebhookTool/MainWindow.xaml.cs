@@ -141,6 +141,10 @@ namespace DiscordWebhookTool
                 embedListBox.SelectedIndex = _selected;
                 _embeds.Add(new Embed() { Title = "New Embed" });
             }
+            else
+            {
+                MessageBox.Show("You can only have up to 10 embeds on a message.", "Max Embed Limit Reached", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void editEmbeds_Click(object sender, RoutedEventArgs e)
