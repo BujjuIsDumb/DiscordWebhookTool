@@ -56,15 +56,18 @@ namespace DiscordWebhookTool
 
         private void titleTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            embedListBox.Items[_selected] =  new ListBoxItem()
+            if (embedListBox.SelectedIndex != -1)
             {
-                Content = titleTextBox.Text,
-                Style = (Style)FindResource("DiscordListBoxItemTheme")
-            };
+                embedListBox.Items[_selected] = new ListBoxItem()
+                {
+                    Content = titleTextBox.Text,
+                    Style = (Style)FindResource("DiscordListBoxItemTheme")
+                };
 
-            embedListBox.SelectedIndex = _selected;
+                embedListBox.SelectedIndex = _selected;
 
-            _embeds[_selected].Title = titleTextBox.Text;
+                _embeds[_selected].Title = titleTextBox.Text;
+            }
         }
 
         private void descriptionTextBox_TextChanged(object sender, TextChangedEventArgs e)
