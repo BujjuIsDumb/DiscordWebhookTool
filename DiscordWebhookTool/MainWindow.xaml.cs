@@ -126,16 +126,16 @@ namespace DiscordWebhookTool
                 // Create embed.
                 _selected = embedListBox.Items.Add(new ListBoxItem()
                 {
-                    Content = "New Embed",
+                    Content = "new embed",
                     Style = (Style)FindResource("DiscordListBoxItemTheme")
                 });
 
                 embedListBox.SelectedIndex = _selected;
-                _embeds.Add(new Embed() { Title = "New Embed" });
+                _embeds.Add(new Embed() { Title = "new embed" });
 
                 // Hide embed data from previous embed.
                 authorTextBox.Text = string.Empty;
-                titleTextBox.Text = "New Embed";
+                titleTextBox.Text = "new embed";
                 descriptionTextBox.Text = string.Empty;
                 footerTextBox.Text = string.Empty;
                 colorTextBox.Text = string.Empty;

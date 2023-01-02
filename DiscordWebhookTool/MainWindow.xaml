@@ -10,7 +10,7 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
-            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="3*" />
         </Grid.ColumnDefinitions>
 
         <!--Webhook URL-->
@@ -40,8 +40,12 @@
         <TextBox x:Name="colorTextBox" Style="{DynamicResource DiscordTextBoxTheme}" Grid.Column="1" Margin="10,274,10,0" VerticalAlignment="Top" Visibility="Hidden" TextChanged="colorTextBox_TextChanged" MaxLines="1" />
 
         <!--Designer Controls-->
-        <Button x:Name="deleteEmbedButton" Style="{DynamicResource SymbolButtonStyle}" Content="-" Margin="31,0,0,78" Visibility="Hidden" Height="29" VerticalAlignment="Bottom" Click="deleteEmbedButton_Click" Foreground="White" BorderBrush="{x:Null}" HorizontalContentAlignment="Left" FontFamily="Segoe UI Semibold" FontSize="24" HorizontalAlignment="Left" Width="14" Background="{x:Null}" ToolTip="Remove Embed"/>
-        <Button x:Name="addEmbedButton" Style="{DynamicResource SymbolButtonStyle}" Content="+" Margin="10,0,0,78" Click="addEmbedButton_Click" Visibility="Hidden" Height="29" VerticalAlignment="Bottom" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" HorizontalContentAlignment="Left" FontFamily="Segoe UI Semibold" FontSize="24" HorizontalAlignment="Left" Width="21" ToolTip="Add Embed"/>
+        <Button x:Name="addEmbedButton" Style="{DynamicResource SymbolButtonStyle}" Margin="10,0,0,78" Click="addEmbedButton_Click" Visibility="Visible" Background="{x:Null}" BorderBrush="{x:Null}" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Width="21" ToolTip="Add Embed" Height="29" VerticalAlignment="Bottom">
+            <Image Source="/add.png"/>
+        </Button>
+        <Button x:Name="deleteEmbedButton" Style="{DynamicResource SymbolButtonStyle}" Margin="36,0,0,78" Visibility="Visible" Click="deleteEmbedButton_Click" Foreground="White" BorderBrush="{x:Null}" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Width="21" Background="{x:Null}" ToolTip="Remove Embed" Height="29" VerticalAlignment="Bottom">
+            <Image Source="/remove.png"/>
+        </Button>
         <Button x:Name="editEmbeds" Style="{DynamicResource DiscordButtonThemeSecondary}" Content="Edit Embeds" Margin="10,0,10,44" Click="editEmbeds_Click" Height="29" VerticalAlignment="Bottom"/>
         <Button x:Name="editMessageButton" Style="{DynamicResource DiscordButtonThemeSecondary}" Content="Edit Message" Margin="10,0,10,10" Click="editMessageButton_Click" Height="29" VerticalAlignment="Bottom"/>
     </Grid>

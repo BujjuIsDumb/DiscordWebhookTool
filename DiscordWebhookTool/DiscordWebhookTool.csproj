@@ -6,7 +6,13 @@
     <Nullable>disable</Nullable>
     <UseWPF>true</UseWPF>
     <ApplicationIcon>icon.ico</ApplicationIcon>
+    <Version>1.1.0</Version>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="add.png" />
+    <None Remove="remove.png" />
+  </ItemGroup>
 
   <ItemGroup>
     <Content Include="icon.ico" />
@@ -14,6 +20,11 @@
 
   <ItemGroup>
     <Content Include="WhitneyLight.otf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="add.png" />
+    <Resource Include="remove.png" />
   </ItemGroup>
 
 </Project>
